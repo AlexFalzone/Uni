@@ -1,6 +1,7 @@
 # Uni
 Various material from DMI/UNICT (department of mathematics and computer science of the university of Catania).
 It includes first and second year material.
+
 Fist Year:
   -Algebra e Geometria
   -Strutture Discrete
@@ -16,4 +17,4 @@ Second Year:
   -Database
   -Algoritmi
   -Interazione e Multimedia
-  -
+  
