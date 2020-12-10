@@ -1,0 +1,24 @@
+;somma
+
+operand_a		dcd		7
+operand_b		dcd		5
+			
+			mov		r3, #operand_a
+			ldr		r1, [r3]   ;r1 <-- conternuto della cella indirizzata da operand_a
+			
+			mov		r3, #operand_b
+			ldr		r2, [r3]
+			
+			mov		r0, #0
+			
+loop
+			cmp		r2, #0  ;r2==0??
+			beq		end_program  ;ciclo
+			
+			add		r0, r0, r1  ;r0 = ro+r1
+			sub		r2, r2, #1  ;r2 = r2-1
+			
+			b		loop
+			
+end_program
+			end

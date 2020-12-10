@@ -1,0 +1,7 @@
+data		dcd		0x12345678
+		
+		mov		r0, #data
+		ldr		r0, [r0]
+		;;		azzerare B4 a B7
+		bic		r0, r0, #0x0f0
+		end

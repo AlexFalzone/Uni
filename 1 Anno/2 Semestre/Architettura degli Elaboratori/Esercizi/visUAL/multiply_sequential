@@ -1,0 +1,27 @@
+numM			dcd		20
+numQ			dcd		50
+			
+			mov		r0,#numM
+			ldr		r0,[r0]
+			mov		r1,#numQ
+			ldr		r1,[r1]
+			
+			mov		r2,#0	 ;;i
+			mov		r3,#0      ;;p
+			
+loop
+			cmp		r2,#8
+			beq		end_program
+			and		r4,r1,#0x1
+			cmp		r4,#0
+			beq		no_shift
+			LSL		r5,r0,#8
+			add		r3,r3,r5
+no_shift
+			lsr		r3,r3,#1
+			lsr		r1,r1,#1
+			add		r2,r2,#1
+			b		loop
+			
+			
+end_program

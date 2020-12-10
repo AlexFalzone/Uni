@@ -1,0 +1,22 @@
+dim		dcd		5
+array	dcd		100,200,300,400,500
+		
+		mov		r0, #dim
+		ldr		r2, [r0]
+		
+		mov		r1, #array
+		mov		r0, #0
+		
+		;start
+loop
+		
+		cmp		r2, #0
+		beq		end_sum
+		ldr		r3, [r1]
+		add		r0, r0, r3
+		add		r1, r1, #4
+		sub		r2, r2, #1
+		b		loop
+		
+end_sum
+		end

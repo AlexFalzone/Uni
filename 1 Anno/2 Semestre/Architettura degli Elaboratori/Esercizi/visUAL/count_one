@@ -1,0 +1,30 @@
+numero		dcd		0x1234
+			
+			mov		r0, #numero
+			ldr		r0, [r0]
+			
+			
+			mov		r2, #0 	;contatore "1"
+			mov		r3, #0 	;contatore fine dei 32bit
+			
+ciclo
+			cmp		r3, #32
+			beq		end_program
+			
+			and		r4, r0, #1
+			cmp		r4, #1
+			beq		ciclo_1
+			
+continua
+			ror		r0,r0,#1
+			add		r3,r3,#1
+			b		ciclo
+			
+			
+ciclo_1
+			add		r2,r2,#1
+			b		continua
+			
+			
+end_program
+			end
