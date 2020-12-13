@@ -3,7 +3,7 @@ Various material from DMI/UNICT (department of mathematics and computer science 
 It includes first and second year material.
 
 Fist Year:
-  -Algebra e Geometria
+  <b>-Algebra e Geometria</b>
   -Strutture Discrete
   -Analisi 1
   -Fondamenti di Informatica
