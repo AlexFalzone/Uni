@@ -1,0 +1,90 @@
+#include "GraphBase/Graph.cpp"
+
+template <class H, class T> int BellmanFord(Graph<H, T>* graph, H keysrc, T*& distances, int*& predecessors)
+{
+	int V = graph->getCurrentNodeNumber();
+	distances = new T[V];
+	predecessors = new int[V];
+	int src = graph->findIndex(keysrc);
+	// Initially distance is for each node // manage the usage of the flag
+	for (int i = 0; i < V; i++)
+	{
+		distances[i] = INT_MAX;
+		predecessors[i] = -1;
+	}
+	distances[src] = 0;
+	predecessors[src] = src;
+	// Relax all edges | V | -1 times
+	for (int s = 0; s < V - 1; s++)
+		for (int i = 0; i < V; i++)
+			for (int j = 0; j < V; j++)
+			{
+				if (distances[i] != INT_MAX && graph->getGraphIndexMatrix()[i][j] == 1)
+				{
+					T weight = graph->getWeightMatrix()[i][j];
+					if (distances[i] + weight < distances[j])
+					{
+						distances[j] = distances[i] + weight;
+						predecessors[j] = i;
+						//cout << j << " " << i << endl;
+					}
+				}
+			}
+	//Check for negative cycles
+	for (int i = 0; i < V; i++)
+		for (int j = 0; j < V; j++)
+		{
+			if (distances[i] != INT_MAX && graph->getGraphIndexMatrix()[i][j] == 1)
+			{
+				T weight = graph->getWeightMatrix()[i][j];
+				if (distances[i] + weight < distances[j])
+					return 0;
+			}
+		}
+	return 1;
+}
+
+
+
+template <class H, class T> void printDistances(Graph<H,T>* graph,  H key, T* distances, int* predecessors)
+{
+	cout << "Printing Bellman-Ford distances" << endl;
+	if (predecessors == NULL || graph->findIndex(key) < 0)
+		return;
+	if (distances == NULL)
+	{
+		cout << "Graph contains negative weight cycles" << endl;
+		return;
+	}	
+	int src = graph->findIndex(key);
+	for (int i = 0; i < graph->getCurrentNodeNumber(); i++)
+	 cout << "Distance from " << key << " to " << *(graph->getKey(i)) << " is " << distances[i] << endl;
+
+	cout << "Printing predecessor list" << endl;
+	for (int i = 0; i < graph->getCurrentNodeNumber(); i++)
+	{
+		if (predecessors[i] > -1)
+			cout << "The predecessor of " << *(graph->getKey(i)) << " is " << *(graph->getKey(predecessors[i])) << endl;
+		else
+			cout << *(graph->getKey(i)) << " is unreacheable" << endl;
+		//cout << *(graph->getKey(predecessors[i])) << "-->" << endl;
+	}
+	return;
+}
+
+
+int main()
+{
+	Graph<char, int>* g = new Graph<char, int>(5);
+	g->addNode('A')->addRootNode('C')->addRootNode('B')->addNode('D')->addNode('E');
+	g->addEdge('C', 'B', 4)->addEdge('C', 'A', 1)->addEdge('C', 'C', 0)->addEdge('B', 'D', 2)->addEdge('A', 'D', -19)->addEdge('D','E', 3)->addEdge('B', 'E', -80);
+	// g->addEdge('D', 'C', -3); //this line add a negative cicle
+	g->print();
+	int* distances = NULL;
+	int* predecessors = NULL;
+	if (BellmanFord(g, 'C', distances, predecessors))
+		printDistances(g, 'C', distances, predecessors);
+	else
+		cout<<"The graph contains negative cycles" << endl;
+ return 1;
+}
