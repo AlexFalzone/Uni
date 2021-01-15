@@ -1,0 +1,247 @@
+<!--DTD e XQUERY-->
+
+<!--ESERCIZIO 1-->
+<!ELEMENT libretti (libretto)* >
+<!ELEMENT libretto (studente,esami?) >
+<!ELEMENT studente (nome,cognome) >
+<!ATTLIST studente cdl CDATA #REQUIRED
+ matricola CDATA #REQUIRED >
+<!ELEMENT esami (esame)+ >
+<!ELEMENT esame (materia,voto,data) >
+
+<? XML version = "1.0"?>
+<LIBRETTI>
+    <LIBRETTO>
+        <STUDENTE>
+        </STUDENTE cdl = "informatica", matricola = "10002001">
+            <NOME></NOME>
+            <COGNOME></COGNOME>
+        <ESAMI>
+            <ESAME>
+                <MATERIA></MATERIA>
+                <VOTO></VOTO>
+                <DATA></DATA>
+            </ESAME>
+        </ESAMI>
+    </LIBRETTO>
+</LIBRETTI>
+
+<!--studenti che hanno preso almeno un trenta riportando nome cognome e materia-->
+<risultati>
+{
+    for $a in doc("DTD_xQuery.xml")/libretti/libretto
+        where $a/esami/esame/materia/voto == 30
+        return 
+        <risultato>
+        {
+            $a/studente/nome, $a/studente/cognome, $a/esami/materia/voto
+        } 
+        </risultato
+}
+</risultati>
+
+<!--ESERCIO 2-->
+
+<?XML version = "1.0"?>
+    <CHIAMATE>
+        <CHIAMATA> cliente =" 1234">
+            <DATA> 01/01/1980 </DATA>
+            <OPERATORE>
+                <CODICE> 007 </DATA>
+                <NOME> Saro </NOME>
+                <COGNOME> FalsaPerla </COGNOME>
+            </OPERATORE>
+            <CONTATTO>
+                <NOME></NOME>
+                <COGNOME></COGNOME>
+                <TELEFONO></TELEFONO>
+            </CONTATTO>
+            <PRODOTTO> polpette di cavallo </PRODOTTO>
+        </CHIAMATA>
+    </CHIAMATE>
+    <VENDITA></VENDITA>
+
+
+<!-- Scrivere una query per elencare tutti i contatti svolti dall’operatore con codice 500 nel mese di gennaio 2020 indicando nome e cognome della persona chiamata e prodotto venduto -->
+<risultati>
+{
+    for $a in doc("DTD_xQuery.xml")//chiamate/chiamata
+        where $a/data[OrderDate>2019/31/12][OrderDate<=2020/31/01] and $a/operatore/codice = "500"
+            return
+                <risultato>
+                {
+                    $a/contatto/nome,
+                    $a/contatto/cognome,
+                    $a/prodotto 
+                }
+                </risultato>
+}
+</risultati> 
+                    
+
+<!--ESERCIZIO 3-->  
+< ! ELEMENT prenotazioni ( prenotazione* ) >
+< ! ELEMENT prenotazione ( data , ( docente+ I studente+ ), aula ) >
+< ! ATTLIST prenotazione materia CDATA #REQUIRED >
+< ! ELEMENT docente ( nome , cognome ) >
+< ! ELEMENT studente ( matricola, nome , cognome)>
+< ! ELEMENT matricola ( #PCDATA ) >
+< ! ELEMENT cognome ( #PCDATA ) >
+< ! ELEMENT nome ( #PCDATA ) >
+< ! ELEMENT data ( #PCDATA ) >
+< ! ELEMENT aula ( #PCDATA ) >
+
+<?XML version ="1.0" ?>
+    <PRENOTAZIONI>
+        <PRENOTAZIONE materia = "database">
+            <DATA>01/01/1980</DATA>
+            <DOCENTE>
+                <NOME>Domenico</NOME>
+                <COGNOME>Cantone</COGNOME>
+            </DOCENTE>
+            <STUDENTE>
+                <MATRICOLA>100000069420</MATRICOLA>
+                <NOME>Giovanni</NOME>
+                <COGNOME>Bellomo</COGNOME>
+            </STUDENTE>
+            <AULA>24</AULA>
+        </PRENOTAZIONE>
+    </PRENOTAZIONI>
+
+<!--Scrivere una query per elencare tutte le prenotazioni effettuata dal docente “Rossi” nel mese di gennaio 2020 indicando nome e cognome degli studenti e le rispettive materie-->
+<risultati>
+{
+    for $a in doc("DTD_xQuery.xml")/prenotazioni/prenotazione
+        where $a/docente/nome = "Rossi" and $a/data[OrderDate>2019/31/12][OrderDate<=2020/31/01]
+            return
+                <risultato>
+                {
+                    $a/studente/nome, $a/studente/cognome, $a/@materia
+                }
+                </risultato>
+}
+</risultati>
+
+<!--ESERCIZIO 4-->
+<!DOCTYPE	verbali	[		
+	<!ELEMENT	verbali	(verbale)*	>		
+	<!ELEMENT	verbale	(studente,esame)	>		
+	<!ELEMENT	studente	(nome+,cognome)	>		
+	<!ATTLIST	studente	cdl	 CDATA	#REQUIRED		
+								matricola	 CDATA	#REQUIRED	>		
+	<!ELEMENT	esame	(materia,docente,voto,lode?,data)	>		
+	<!ELEMENT	nome	(#PCDATA)	>		
+	<!ELEMENT	cognome	(#PCDATA)	>		
+	<!ELEMENT	materia	(#PCDATA)	>		
+	<!ELEMENT	docente	(#PCDATA)	>		
+	<!ELEMENT	voto	(#PCDATA)	>		
+	<!ELEMENT	lode	(#PCDATA)	>	
+]>	
+
+<?xml version ="1.0" ?>
+    <VERBALI>
+        <VERBALE>
+            <STUDENTE cdl="informatica",matricola="1000004012">
+                <NOME>Saro</NOME>
+                <COGNOME>Forte</COGNOME>
+            </STUDENTE>
+            <ESAME>
+                <MATERIA>arti rupestri</MATERIA>
+                <DOCENTE>Franco Barbanera</DOCENTE>
+                <VOTO>18</VOTO>
+                <LODE>NO</LODE>
+                <DATA>25/05/2098</DATA>
+            </ESAME>
+        </VERBALE>
+    </VERBALI>
+
+<!--ESERCIZIO 5-->
+<!ELEMENT collezione (descrzione,ricetta*)>
+<!ELEMENT descrizione ANY>
+<!ELEMENT ricetta (titolo,ingredienti*,preparazione,commenti?,fattori_nutritivi)>
+<!ELEMENT titolo (#PCDATA)>
+<!ELEMENT ingredienti (ingrediente*,preparazione)?>
+<!ATTLIST ingrediente nome CDATA #REQUIRED
+ quantità CDATA #IMPLIED
+ unità CDATA #IMPLIED>
+<!ELEMENT preparazione (passi*)>
+<!ELEMENT passo (#PCDATA)>
+<!ELEMENT commenti (#PCDATA)>
+<!ELEMENT fattori_nutritivi EMPTY>
+<!ATTLIST fattori nutritivi proteine CDATA #REQUIRED
+ carboidrati CDATA #REQUIRED
+ grassi CDATA #REQUIRED
+ calorie CDATA #REQUIRED
+ alcol CDATA #IMPLIED>
+
+ <? xml version = "1.0"?>
+    <COLLEZIONE>
+        <DESCRIZIONE>
+        </DESCRIZIONE>
+        <RICETTA>
+            <TITOLO>Pollo e cocaina</TITOLO>
+            <INGREDIENTI>
+                <INGREDIENTE nome = "uova", quantita = "3", unita = "1"></INGREDIENTE>
+                <PREPARAZIONE>
+                    <PASSI>1<</PASSI>
+                    <PASSI>2<</PASSI>
+                    <PASSI>3<</PASSI>
+                </PREPARAZIONE>
+            </INGREDIENTI>
+            <PREPARAZIONE>
+                <PASSI></PASSI>
+            </PREPARAZIONE>
+            <COMMENTI>no</COMMENTI>
+            <FATTORI_NUTRITIVI proteine = "100g", carboidrati = "10", grassi = "1", calorie = "100", alcol = "4%"></FATTORI_NUTRITIVI>
+        </RICETTA>
+    </COLLEZIONE>
+
+<!-- Scrivere una query in xquery per trovare le ricette che hanno 450 calorie e che richiedono 5 passi-->
+
+<risultati>
+{
+    for $a in doc(DTD_xQuery.xml)/collezione/ricetta
+        where $a/fattori_nutritivi/@calorie == "450" and count($a/preparazione) == 5
+            return
+                <risultato>
+                {
+                    $a/titolo      
+                }
+                </risultato>
+}
+</risultati>
+
+<!--ESERCIZIO6-->
+<?xml version=“1.0“ ?>
+<verbali>
+<verbale>
+ <studente cdl=”667” matr=”123456”>
+ <nome>Filippo</nome>
+ <nome>Maria</nome>
+ <cognome>Rossi</cognome>
+ </studente>
+ <esame>
+ <materia>Data Mining</materia>
+ <docente>Ferro</docente>
+ <voto>30</voto>
+ <lode>Sì</lode>
+ <data>01/04/04</data>
+</esame>
+</verbale>
+…
+</verbali> 
+
+<!--una	interrogazione	XQuery	che	dal	file	verbali.xml	estragga	tutti i risultati	degli	esami	di	“Reti	di	Calcolatori”	per	il	CdL	“667”.	--> 	
+
+<risultati>
+{
+    for $a in doc(DTD_xQuery.xml)/verbali/verbale
+        where $a/materia == "Reti di calcolatori" and $a/studente/@cdl = "667"
+            return
+                <risultato>
+                {
+                    $a/esame/voto, $a/esame/voto, $a/esame/data
+                }
+                </risultato>
+}
+</risultati>
