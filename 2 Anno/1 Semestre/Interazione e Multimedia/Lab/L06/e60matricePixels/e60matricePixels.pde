@@ -18,6 +18,8 @@ void draw(){
   image(I,0,0);
 }
 
+
+
 void keyPressed(){
   if (key=='r'){
     ar--;
@@ -37,6 +39,9 @@ void keyPressed(){
   //originale
   println(ar);
 }
+
+
+
 
 int pos (int x, int y, int w){
   return x+y*w;

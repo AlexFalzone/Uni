@@ -31,7 +31,7 @@ void draw()
 void mousePressed()
 {
     //L'ultimo parametro indica l'operazione. Abbiamo associato a 0 il negativo, a 1 il logaritmo e a 2 gamma.
-    IL=applyOperator(IL,mouseX,mouseY,K,2);
+    IL=applyOperator(IL,mouseX,mouseY,K,0);
 }
 
 void keyPressed()

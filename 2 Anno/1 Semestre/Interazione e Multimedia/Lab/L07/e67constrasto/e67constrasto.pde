@@ -1,4 +1,6 @@
-//Visualizziamo da sinistra a destra: l'immagine originale; l'immagine normalizzata con stretching lineare del contrasto; l'immagine equalizzata
+//Visualizziamo da sinistra a destra: l'immagine originale; 
+//                                    l'immagine normalizzata con stretching lineare del contrasto; 
+//                                    l'immagine equalizzata
 PImage Im,Is,Ie;
 float[] H1,H2;
 void setup()
