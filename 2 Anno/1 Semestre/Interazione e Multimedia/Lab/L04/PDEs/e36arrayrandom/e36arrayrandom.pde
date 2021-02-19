@@ -1,5 +1,6 @@
 //ricapitolo.
-//ARRAY serve a conservare dati della stessa natura. se dobbiamo disegn 100 cerchi identici si mettono dati essenziali (es posiz) e poi si usa il ciclo for
+//ARRAY serve a conservare dati della stessa natura. se dobbiamo disegn 100 cerchi identici si mettono 
+//dati essenziali (es posiz) e poi si usa il ciclo for
 //rettangoli tra di loro random ma con posizione fissa e poi si muovono assieme
 //si crea fuori dalle funzioni
 //inizializz array con il for nel setup e nel draw facciamo un ciclo for per leggerli
