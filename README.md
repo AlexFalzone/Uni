@@ -17,4 +17,7 @@ It includes first and second year material.
   -Database<br>
   -Algoritmi<br>
   -Interazione e Multimedia<br>
+  -Sistemi Operativi<br>
+  -Reti di Calcolatori<br>
+  -Ingegneria del software<br>
   
