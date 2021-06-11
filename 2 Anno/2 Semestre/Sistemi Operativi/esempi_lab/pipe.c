@@ -1,4 +1,4 @@
-/**
+ /**
  *  crea una pipe di comunicazione tra un padre ed il figlio:
  *  questi poi la usano per una forma di "conversazione bidirezionale"
  *  un po' atipica: e' infatti sconsigliato usare la stessa pipe
