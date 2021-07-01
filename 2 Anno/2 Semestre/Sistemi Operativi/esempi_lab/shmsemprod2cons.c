@@ -103,7 +103,8 @@ void consumatore(int shm, int sems, int num, int howmany) {
     printf("Consumatore %d: totale finale=%ld\n", num, tot);
 
     exit(0);
-}
+} 
+
 
 int main() {
     int id_shm, id_sems;
