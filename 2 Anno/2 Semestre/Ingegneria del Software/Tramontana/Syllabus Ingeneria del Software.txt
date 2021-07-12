@@ -1,0 +1,79 @@
+Parte Tramontana:
+- Modificabilità del Software.
+- Qualità del Software: Correttezza, Efficienza, manutenibilità, dependability, usabilità.
+- Parole chiave del linguaggio java.
+- Alcuni tipi e metodi di librerie java utilizzati.
+- Spaghetti code e problemi annessi.
+- Paradigma Command and Query.
+
+- Miglioramenti Sul Codice.
+- Facilità nell'effettuare i test se il codice è ben scritto.
+- Test Driven Development.
+- Principio di Singola Responsabilità.
+- Come si compila ed esegue un programma scritto in Java.
+
+- Definizione di Refactoring. 
+- Come si effettua il Refactoring.	
+- Vantaggi dovuti al Refactoring.
+- Tecniche di Refactoring (Motivazioni + Meccanismi): Estrai metodo, Sostituisci Temp con Query, Dividi Variabile Temp.
+
+- Classi e Oggetti.
+- Singleton e considerazioni su di esso.
+- Principio delle Conseguenze Locali.
+- Multiton.
+
+- Riuso di Classi.
+- Ereditarietà Classi. 
+- Interfacce.
+- Classi e metodi abstract.
+- Compatibilità tra tipi.
+- Diagramma UML di Sequenza.
+- Late Binding e Polimorfismo.
+- Tipi di Variabili e Tipi a Runtime.
+
+- Definizione di Design Pattern.
+- Vantaggi nell'uso dei Design Pattern.
+- Come si descrive un Design Pattern? Nome, Intento, Problema, Soluzione e Conseguenze.
+- Altre parti della descrizione: Esempi di utilizzo e Codice.
+- Organizzazione dei Design Pattern: Creazionali, Strutturali e Comportamentali.
+- Factory Method e considerazioni su di esso.
+- Varianti del Factory Method.
+- Dependency Injection.
+
+- Object Pool a dimensione fissa o variabile.
+- Object Pool all'interno del Factory Method.
+
+- Adapter e considerazioni su di esso.
+- Le due varianti di Adatper: Object Adapter e Class Adapter.
+
+- Facade e considerazioni su di esso.
+
+- State e considerazioni su di esso.
+
+- Observer e considerazioni su di esso.
+- Observable e Observer nelle librerie Java (Sconsigliati).
+- Reative Streams.
+- Model View Controller.
+
+- Cos'è un Processo di sviluppo Software.
+- Fasi di un Processo Software: Analisi dei Requisiti, Progettazione, Implementazione, Convalida e Manutenzione.
+- Test di Unità, Test di Sistema, Test di accettazione (alpha test), Beta test.
+- Versioni di un prodotto Software: alpha, beta e golden.
+- Evoluzione del Software.
+- Processo di Sviluppo in cascata.
+- Processi di Sviluppo Evolutivo: Sviluppo per Esplorazione e Sviluppo Build and Fix.
+- Problemi e Applicabilità nel caso di Processi di Sviluppo Evolutivo.
+- Processo di Sviluppo Incrementale.
+- Processo CBSE o basato su COTS.
+- Processo di Sviluppo a Spirale.
+
+- Sviluppo Agile.
+- Un esempio di Sviluppo Agile: XP.
+- Princìpi di XP.
+- Come si lavora seguendo il Processo di Sviluppo XP.
+
+- Composite e considerazioni su di esso.
+
+- Decorator e considerazioni su di esso.
+
+- Mediator e considerazioni su di esso.

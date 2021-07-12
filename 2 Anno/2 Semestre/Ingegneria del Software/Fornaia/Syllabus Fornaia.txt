@@ -1,0 +1,114 @@
+Programma di Ingegneria del software (Parte Fornaia):
+
+- Caratteristiche della programmazione funzionale in Java
+- Che cos'è un'espressione lambda?
+- Vantaggi della programmazione dichiarativa rispetto alla imperativa
+- Definizione di funzione di ordine più alto
+- Java Collection
+- Definizione di metodo di default per le intefacce
+- Classe Stream e metodo stream
+- Metodo filter
+- Metodo count
+- Operazione intermedia vs operazione terminale
+- Tipo Predicate
+- Definizione di interfaccia funzionale
+- Metodo of
+- Metodo reduce
+- Riferimenti a metodi come secondo parametro di reduce (Integer::sum)
+- Classe Optional, metodo isPresent e metodo get
+- Metodo map
+- Stile dichiarativo-funzionale
+- Metodo comparing, classe Comparator e metodo max
+- Metodo collect, classe Collectors e metodo toList
+- Programmazione parallela
+- Stream paralleli e le loro prestazioni migliori rispetto agli Stream sequenziali
+
+- Metodo sorted
+- Metodo forEach
+- Metodo distinct
+- Metodi findAny e findFirst
+- Stateless vs Stateful
+- Metodo iterate
+- Metodo limit
+- Metodo generate
+- Tipo IntStream e metodo rangeClosed
+- Metodo mapToInt
+- Metodo boxed
+- Metodo mapToObj
+- Metodo peek per debug
+
+- Cos'è Git?
+- Cosa si può fare con Git
+- Che cos'è un DVCS?
+- Cosa sono GitHub, GitLab e BitBucket?
+- Cos'è un commit e qual è la sua struttura?
+- Cos'è un feature branch?
+- Merge tra feature branch e branch master
+
+- Quali sono i problemi che possono essere risolti con Maven?
+- Che cos'è Maven?
+- Struttura standard di un progetto Maven
+- Risoluzione delle dipendenze in maniera transitiva da parte di Maven
+- Maven Plugin
+- Che cosa sono i goal in Maven?
+- Maven lifecycle
+- JaCoCo per la code coverage
+- Le properties
+
+- A cosa servono i test?
+- Definizione di unit test
+- Definizione di integration test
+- Definizione di end-to-end test
+- Cos'è JUnit? Quali sono i suoi principi?
+- L'annotazione @Test
+- Indipendenza tra un test ed un altro
+- Che cos'è un'asserzione?
+- Differenti tipi di asserzione: assertNull, assertSame, assertTrue, assertFalse e fail
+- Le annotazioni @Before, @After, @BeforeClass, @AfterClass
+- Che cos'è una test suite?
+- Cosa sono i test parametrici?
+- Cos'è Assertj?
+- Come si misura la qualità di una test suite?
+- Copertura del codice
+- Differenti tipi di copertura: class, method, line, statement, branch e condition coverage
+- Limiti della code coverage
+- Fasi, vantaggi e svantaggi del Test Driven Development
+- A cosa servono i test double?
+- I due tipi di test double: stab e mock
+- La libreria Mockito di Java
+- Verifica dello stato vs verifica del comportamento
+
+- Difetti nel software
+- Verifica e validazione (convalida)
+- Differenti tipi di difetti: difetti di specifiche, di progettazione, di codice e di test
+- Importanza del testing
+- Differenza tra debugging e testing
+- Dati di input per i test
+- Casi di test 
+- Test suite
+- Difficoltà per chi fa i test
+- Obiettivo del testing
+- L'impraticabilità dei test esaustivi
+- Test black-box e white-box
+- Partizionamento in classi equivalenti nel caso di test black-box
+- Considerare sia classi di equivalenza valide che non valide
+- Test del percorso
+- Percorsi indipendenti
+- Approcci per i test di integrazione: top down e bottom-up
+- Test sotto stress
+- Testing manuale
+- Testing automatico
+- Test regressivi
+
+- Definizione di manutenzione
+- Definizione di evoluzione
+- I differenti tipi di cambiamenti: correttivi, adattivi, perfettivi e preventivi
+- Dinamiche di evoluzione
+- Le leggi di Lehman: cambiamento continuo, aumento della complessità, auto-regolazione, stabilità organizzativa, conservazione di familiarità, continua crescita e diminuzione della qualità
+- Dove si possono applicare le leggi di Lehman?
+- Costo di manutenzione
+- Modelli di manutenzione: quick-fix, miglioramento iterativo e riuso
+- Differenti tipi di modifiche: refactoring, reverse engineering e re-engineering
+- Cos'è una metrica?
+- Metriche tradizionali: complessità ciclomatica, LOC, NCNB, comment percentage
+- Metriche CK: WMC, DIT, NOC, CBO, RFC, LCOM
