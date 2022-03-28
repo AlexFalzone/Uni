@@ -2,7 +2,7 @@
 Various material from <b>DMI/UNICT</b> (department of mathematics and computer science of the university of Catania).
 It includes first and second year material.
 
-<bold>Note:in this section there are only the files of the related courses, not the courses themselves</bold>:
+<i><b>Note:in this section there are only the files of the related courses, not the courses themselves</b></i>:
 
 <b>Fist Year</b>:<br>
   -Algebra e Geometria<br>
